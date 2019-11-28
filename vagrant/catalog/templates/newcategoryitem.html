@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header_lgd.html" %}
+<title>New Category Item Add</title>
+	<div class="box">
+
+    <h2>Add New Category Item to "{{category.name}}"</h2>
+      <form action="{{ url_for('newCategoryItem',
+          category = category.name )}}" method = 'post'>
+
+<dl class="">
+
+  <dt>Title:</dt>
+      <dd><input type="text" size="30" name="title"></dd><br>
+  <dt>Description:</dt>
+      <dd><textarea name="description" rows="5" cols="40"> </textarea></dd><br>
+  <dt>Category:</dt>
+      <select class="cat" name="category" placeholder={{category.name}}>
+        <option value="{{category.name}}">{{category.name}}</option>
+        <option value="Soccer">Soccer</option>
+        <option value="Basketball">Basketball</option>
+        <option value="Baseball">Baseball</option>
+        <option value="Frisbee">Frisbee</option>
+        <option value="Snowboarding">Snowboarding</option>
+        <option value="Rock Climbing">Rock Climbing</option>
+      </select>
+</dl>
+
+<input type="submit" value="Create">
+
+<br><br>
+
+<a href='{{url_for('categoryItems', category=category.name)
+          }}'> Cancel </a>
+</div>
+{% endblock %}

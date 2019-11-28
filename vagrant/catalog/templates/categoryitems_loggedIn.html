@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header_lgd.html" %}
+<title>Category Items</title>
+<div class="row box">
+    <div class="col-md-2">
+     <h2>Categories</h2>
+      {% for category in categories %}
+             <a href = "{{url_for('categoryItems', category = category.name)}}">
+	   					  <h3>{{category.name}}</h3></a>
+             {% endfor %}
+    </div>
+
+		<div class="col-md-1">
+		  <div class="vr">&nbsp;</div>
+		</div>
+		<div class="col-md-9">
+ 		<h2>{{category.name}} Items ({{nItems}} items)</h2>
+
+ 				  {% for item in items %}
+ 				  <div>
+ 				  <a href = "{{url_for('itemInformation',
+					    category = item.category.name, item = item.title, creator=creator)}}"> <h3>{{item.title}}</h3></a>
+ 				  </div>
+ 				  {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header_lgd.html" %}
+
+<title>Category Item Edit</title>
+	<div class="box">
+     <h2>Edit Item</h2>
+
+	       <form action="{{ url_for('categoryItemEdit',
+	           category = category.name, item=item.title )}}" method = 'post'>
+
+	 <dl class="">
+
+	   <dt>Title:</dt>
+	       <dd><input type="text" size="30" name="title" placeholder="{{item.title}}"></dd><br>
+	   <dt>Description:</dt>
+	       <dd><textarea name="description" rows="5" cols="40" placeholder="{{item.description}}"></textarea></dd><br>
+	   <dt>Category:</dt>
+	       <select class="cat" name="category">
+	         <option value="{{category.name}}">{{category.name}}</option>
+	         <option value="Soccer">Soccer</option>
+	         <option value="Basketball">Basketball</option>
+	         <option value="Baseball">Baseball</option>
+	         <option value="Frisbee">Frisbee</option>
+	         <option value="Snowboarding">Snowboarding</option>
+	         <option value="Rock Climbing">Rock Climbing</option>
+	       </select>
+	 </dl>
+
+	 <input type="submit" value="Submit">
+
+	 <br><br>
+
+   <a href= '{{url_for('itemInformation', category = category.name, item=item.title )}}'>Cancel</a>
+</div>
+{% endblock %}

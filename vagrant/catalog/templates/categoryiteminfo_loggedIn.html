@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header_lgd.html" %}
+
+<title>Item Information</title>
+
+<div class="row box">
+		 <h2>{{item.title}}</h2>
+		  	     <h3>{{item.description}}</h3>
+
+						 <a href='{{url_for('categoryItemEdit', category = category.name,
+	              item=item.title) }}'>
+	              Edit</a>
+
+	           <a href='{{url_for('categoryItemDelete', category = category.name,
+	              item=item.title) }}'>
+	              Delete</a>
+</div>
+{% endblock %}

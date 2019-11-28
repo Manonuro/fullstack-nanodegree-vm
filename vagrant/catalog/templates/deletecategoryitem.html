@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header_lgd.html" %}
+<title>Category Item Delete</title>
+	<div class="box">
+      <h2>Delete Item</h2>
+      <h3> Are you sure you want to delete "{{item.title}}"? </h3>
+	    <form action="{{ url_for('categoryItemDelete',category = category.name, item=item.title )}}" method = 'post'>
+
+	       <input type='submit' value='Delete'>
+
+	    </form>
+	    <br><br>
+      <a href= '{{url_for('itemInformation', category = category.name, item=item.title )}}'>Cancel</a>
+   </div>
+{% endblock %}
